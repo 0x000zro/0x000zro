@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUPE - The Meme Coin</title>
     <style>
-        /* styles.css content */
         /* General styling for iframes */
         iframe {
             border: none; /* Remove default border */
@@ -86,15 +85,20 @@
             margin: 2rem auto;
             max-width: 800px;
             animation: fadeIn 2s ease-in;
+            position: relative;
         }
 
         .hero h2 {
             margin-top: 0;
         }
 
+        /* Styling for the logo */
         .hero img {
-            max-width: 100%;
+            width: 150px; /* Adjust the logo width */
             height: auto;
+            position: absolute;
+            top: 10px;
+            right: 10px;
             transition: transform 0.3s;
         }
 
@@ -258,6 +262,12 @@
                 padding: 1rem;
                 margin: 1rem auto;
             }
+
+            .hero img {
+                width: 100px; /* Adjust the logo size for smaller screens */
+                top: 5px;
+                right: 5px;
+            }
         }
     </style>
 </head>
@@ -282,7 +292,7 @@
         <section class="hero">
             <h2>Welcome to RUPE</h2>
             <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
-            <img src="path_to_your_image.png" alt="RUPE Meme Coin" />
+            <img src="https://drive.google.com/uc?export=view&id=1L860Xi8hL90vZV2DO6GqyyOMzwMXFmNZ" alt="RUPE Meme Coin Logo" />
         </section>
         <section class="account-section">
             <h2>Your Account</h2>
@@ -309,94 +319,62 @@
             <h2>Staking</h2>
             <p>Stake your RUPE tokens and earn rewards!</p>
             <form id="stakingForm">
-                <label for="stakeAmount">Amount to Stake:</label>
-                <input type="number" id="stakeAmount" name="stakeAmount">
+                <label for="stakeAmount">Amount to Stake:</<input type="number" id="stakeAmount" name="stakeAmount" min="1" placeholder="Enter amount" />
                 <button type="submit">Stake</button>
             </form>
-            <div id="stakeMessage"></div>
         </section>
         <section id="team" class="team">
-            <h2>Team</h2>
-            <p>Meet the team behind RUPE.</p>
-            <!-- Team members' details can be added here -->
-        </section
-</section>
+            <h2>Meet the Team</h2>
+            <p>Our dedicated team of developers, marketers, and meme enthusiasts are here to bring RUPE to the moon!</p>
+        </section>
         <section id="faq" class="faq">
             <h2>FAQ</h2>
-            <p>Find answers to common questions.</p>
-            <!-- FAQ details can be added here -->
-        </section>
-        <section id="uniswap" class="uniswap">
-            <h2>Buy/Sell RUPE on Uniswap</h2>
-            <iframe src="https://app.uniswap.org/#/swap?outputCurrency=YOUR_TOKEN_ADDRESS" id="uniswap-iframe"></iframe>
+            <p>Have questions? We have answers!</p>
+            <ul>
+                <li>What is RUPE? RUPE is the next big meme coin on the Ethereum blockchain.</li>
+                <li>How do I buy RUPE? You can buy RUPE on decentralized exchanges.</li>
+                <li>How do I stake RUPE? Simply use the staking form above to stake your tokens and earn rewards.</li>
+            </ul>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 RUPE. All rights reserved.</p>
+        <p>&copy; 2024 RUPE - All rights reserved.</p>
         <div class="social-media">
-            <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
-            <a href="https://discord.com/yourprofile" target="_blank">Discord</a>
-            <a href="https://telegram.org/yourprofile" target="_blank">Telegram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Telegram</a>
+            <a href="#">Discord</a>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+
     <script>
-        // app.js content
-        document.addEventListener('DOMContentLoaded', () => {
-            const connectButton = document.getElementById('connectButton');
-            const accountDiv = document.getElementById('account');
-            const balanceDiv = document.getElementById('balance');
-            const darkModeToggle = document.getElementById('darkModeToggle');
-            const body = document.body;
+        const connectButton = document.getElementById('connectButton');
+        const accountDiv = document.getElementById('account');
+        const balanceDiv = document.getElementById('balance');
+        const darkModeToggle = document.getElementById('darkModeToggle');
 
-            let account;
-            let web3;
-
-            // MetaMask connection
-            connectButton.addEventListener('click', async () => {
-                if (typeof window.ethereum !== 'undefined') {
-                    web3 = new Web3(window.ethereum);
-                    try {
-                        await window.ethereum.request({ method: 'eth_requestAccounts' });
-                        const accounts = await web3.eth.getAccounts();
-                        account = accounts[0];
-                        accountDiv.textContent = `Connected: ${account}`;
-                        const balance = await web3.eth.getBalance(account);
-                        balanceDiv.textContent = `Balance: ${web3.utils.fromWei(balance, 'ether')} ETH`;
-                    } catch (error) {
-                        console.error(error);
-                    }
-                } else {
-                    alert('MetaMask not detected');
+        // MetaMask connection logic
+        connectButton.addEventListener('click', async () => {
+            if (window.ethereum) {
+                try {
+                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                    const account = accounts[0];
+                    accountDiv.textContent = `Connected account: ${account}`;
+                    const balance = await ethereum.request({ method: 'eth_getBalance', params: [account, 'latest'] });
+                    balanceDiv.textContent = `Balance: ${parseFloat(balance) / 10 ** 18} ETH`;
+                } catch (error) {
+                    console.error(error);
+                    accountDiv.textContent = 'Connection failed. Please try again.';
                 }
-            });
+            } else {
+                accountDiv.textContent = 'MetaMask not detected. Please install MetaMask and try again.';
+            }
+        });
 
-            // Dark mode toggle
-            darkModeToggle.addEventListener('click', () => {
-                body.classList.toggle('dark-mode');
-                document.querySelectorAll('header, footer, button, .account-section, .about, .features, .roadmap, .staking, .team, .faq').forEach(el => {
-                    el.classList.toggle('dark-mode');
-                });
-            });
-
-            // Staking form submission
-            const stakingForm = document.getElementById('stakingForm');
-            const stakeMessage = document.getElementById('stakeMessage');
-
-            stakingForm.addEventListener('submit', async (event) => {
-                event.preventDefault();
-                const stakeAmount = document.getElementById('stakeAmount').value;
-                if (account && web3) {
-                    try {
-                        // Placeholder for staking logic
-                        stakeMessage.textContent = `You have staked ${stakeAmount} RUPE tokens.`;
-                    } catch (error) {
-                        console.error(error);
-                        stakeMessage.textContent = 'Staking failed. Please try again.';
-                    }
-                } else {
-                    stakeMessage.textContent = 'Please connect your wallet first.';
-                }
+        // Dark mode toggle
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.querySelectorAll('header, footer, button, .account-section, .about, .features, .roadmap, .staking, .team, .faq').forEach((section) => {
+                section.classList.toggle('dark-mode');
             });
         });
     </script>
