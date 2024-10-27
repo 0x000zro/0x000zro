@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RUPE</title>
+    <title>$RUPE - The Meme Coin</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,8 +16,7 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#staking">Staking</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#referral-dashboard">Referral Dashboard</a></li>
                 <li><button id="connectButton">Connect Wallet</button></li>
                 <li><button id="darkModeToggle">Dark Mode</button></li>
             </ul>
@@ -27,35 +26,13 @@
         <section class="hero">
             <h2>Welcome to $RUPE</h2>
             <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
-            <img src="path_to_your_image.png" alt="$RUPE Meme Coin">
-        </section>
-        <section class="account-section">
-            <h2>Your Account</h2>
-            <div id="account">Not connected</div>
-            <div id="balance"></div>
-            <div id="referralCode"></div>
-            <button id="copyReferralButton">Copy Referral Code</button>
-            <div id="copyStatus"></div>
         </section>
         <section id="about" class="about">
             <h2>About $RUPE</h2>
             <p>$RUPE is a meme coin with a mission to bring joy and value to the crypto community.</p>
         </section>
-        <section id="features" class="features">
-            <h2>Features</h2>
-            <ul>
-                <li>Decentralized</li>
-                <li>Community-driven</li>
-                <li>Secure and Transparent</li>
-            </ul>
-        </section>
-        <section id="roadmap" class="roadmap">
-            <h2>Roadmap</h2>
-            <p>Our journey to revolutionize the meme coin space is just beginning. Stay tuned for updates!</p>
-        </section>
         <section id="staking" class="staking">
             <h2>Staking</h2>
-            <p>Stake your $RUPE tokens and earn rewards!</p>
             <form id="stakingForm">
                 <label for="stakeAmount">Amount to Stake:</label>
                 <input type="number" id="stakeAmount" name="stakeAmount">
@@ -63,26 +40,20 @@
             </form>
             <div id="stakeMessage"></div>
         </section>
-        <section id="team" class="team">
-            <h2>Team</h2>
-            <p>Meet the team behind RUPE.</p>
-        </section>
-        <section id="faq" class="faq">
-            <h2>FAQ</h2>
-            <p>Find answers to common questions.</p>
-        </section>
-        <section id="uniswap" class="uniswap">
-            <h2>Buy/Sell RUPE on Uniswap</h2>
-            <iframe src="https://app.uniswap.org/#/swap?outputCurrency=YOUR_TOKEN_ADDRESS"></iframe>
+        <section id="referral-dashboard" class="referral-dashboard">
+            <h2>Your Referral Dashboard</h2>
+            <div id="account">Not connected</div>
+            <div id="balance"></div>
+            <div id="referralCode">Referral Link: N/A</div>
+            <button id="copyReferralButton">Copy Referral Code</button>
+            <div id="copyStatus"></div>
+            <h3>Referral Stats</h3>
+            <p>Referred Users: <span id="referredUsers">0</span></p>
+            <p>Total Earned: <span id="totalEarned">0 RUPE</span></p>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 $RUPE. All Rights Reserved.</p>
-        <div class="social-media">
-            <a href="https://twitter.com/your_profile" target="_blank">Twitter</a>
-            <a href="https://telegram.me/your_group" target="_blank">Telegram</a>
-            <a href="https://discord.gg/your_server" target="_blank">Discord</a>
-        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
     <script src="app.js"></script>
