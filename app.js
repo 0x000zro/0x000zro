@@ -1,79 +1,61 @@
-/* Reset styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const connectButton = document.getElementById('connectButton');
+    const accountDiv = document.getElementById('account');
+    const balanceDiv = document.getElementById('balance');
+    const referralCodeDisplay = document.getElementById('referralCode');
+    const copyReferralButton = document.getElementById('copyReferralButton');
+    const copyStatus = document.getElementById('copyStatus');
+    const darkModeToggle = document.getElementById('darkModeToggle');
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-}
+    let web3;
 
-/* Dark Mode */
-body.dark-mode {
-    background-color: #121212;
-    color: white;
-}
+    // Toggle Dark Mode
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
 
-header {
-    background-color: #007bff;
-    padding: 20px;
-    text-align: center;
-    color: white;
-}
+    // Connect Wallet
+    connectButton.addEventListener('click', async () => {
+        if (typeof window.ethereum !== 'undefined') {
+            web3 = new Web3(window.ethereum);
+            try {
+                const accounts = await web3.eth.requestAccounts();
+                const account = accounts[0];
+                accountDiv.textContent = `Connected: ${account}`;
+                const balance = await web3.eth.getBalance(account);
+                balanceDiv.textContent = `Balance: ${web3.utils.fromWei(balance, 'ether')} ETH`;
+                generateReferralCode(account);
+            } catch (error) {
+                console.error("Connection failed:", error);
+            }
+        } else {
+            accountDiv.textContent = 'MetaMask not detected';
+        }
+    });
 
-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
+    // Generate Referral Code
+    function generateReferralCode(account) {
+        const code = `https://yourproject.com/?ref=${account}`;
+        referralCodeDisplay.textContent = `Referral Link: ${code}`;
+    }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
+    // Copy Referral Code
+    copyReferralButton.addEventListener('click', () => {
+        navigator.clipboard.writeText(referralCodeDisplay.textContent)
+            .then(() => {
+                copyStatus.textContent = 'Referral link copied!';
+                setTimeout(() => { copyStatus.textContent = ''; }, 2000);
+            })
+            .catch(err => console.error("Failed to copy text: ", err));
+    });
 
-nav ul li {
-    display: inline;
-}
+    // Staking form submission
+    const stakingForm = document.getElementById('stakingForm');
+    const stakeMessage = document.getElementById('stakeMessage');
 
-main {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-}
-
-.hero {
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px 0;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.staking, .referral-dashboard {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
+    stakingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const stakeAmount = document.getElementById('stakeAmount').value;
+        stakeMessage.textContent = `You have staked ${stakeAmount} RUPE.`;
+    });
+});
