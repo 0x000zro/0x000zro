@@ -1,3 +1,6 @@
+   <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script>
+      
 document.addEventListener('DOMContentLoaded', () => {
     const connectButton = document.getElementById('connectButton');
     const accountDiv = document.getElementById('account');
