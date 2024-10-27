@@ -4,7 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$RUPE - The Meme Coin</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General styling for iframes */
+        iframe {
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 100%;
+            height: 600px;
+        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            iframe {
+                margin-top: 10px;
+            }
+        }
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            color: black;
+        }
+        header {
+            background-color: #00695c;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+        nav ul li a, nav ul li button {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+        .hero {
+            background-color: #4fc3f7;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 800px;
+            animation: fadeIn 2s ease-in;
+        }
+        .account-section, .referral-section, .about, .features, .roadmap, .staking, .team, .faq {
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        .referral-section {
+            background-color: #c8e6c9;
+        }
+        .referral-section button {
+            background-color: #0288d1;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .referral-section button:hover {
+            background-color: #0277bd;
+        }
+        footer {
+            background-color: #00695c;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,7 +105,8 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#staking">Staking</a></li>
-                <li><a href="#referral-dashboard">Referral Dashboard</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><button id="connectButton">Connect Wallet</button></li>
                 <li><button id="darkModeToggle">Dark Mode</button></li>
             </ul>
@@ -26,36 +116,99 @@
         <section class="hero">
             <h2>Welcome to $RUPE</h2>
             <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
+            <img src="path_to_your_image.png" alt="$RUPE Meme Coin" />
         </section>
+
+        <section class="account-section">
+            <h2>Your Account</h2>
+            <div id="account">Not connected</div>
+            <div id="balance"></div>
+        </section>
+
+        <!-- Referral Section -->
+        <section class="referral-section">
+            <h2>Your Referral Dashboard</h2>
+            <div id="referralCode">Not connected</div>
+            <button id="copyReferralButton">Copy Referral Link</button>
+            <div class="reward-info" id="referralRewards">Loading rewards...</div>
+        </section>
+
         <section id="about" class="about">
             <h2>About $RUPE</h2>
             <p>$RUPE is a meme coin with a mission to bring joy and value to the crypto community.</p>
         </section>
-        <section id="staking" class="staking">
-            <h2>Staking</h2>
-            <form id="stakingForm">
-                <label for="stakeAmount">Amount to Stake:</label>
-                <input type="number" id="stakeAmount" name="stakeAmount">
-                <button type="submit">Stake</button>
-            </form>
-            <div id="stakeMessage"></div>
-        </section>
-        <section id="referral-dashboard" class="referral-dashboard">
-            <h2>Your Referral Dashboard</h2>
-            <div id="account">Not connected</div>
-            <div id="balance"></div>
-            <div id="referralCode">Referral Link: N/A</div>
-            <button id="copyReferralButton">Copy Referral Code</button>
-            <div id="copyStatus"></div>
-            <h3>Referral Stats</h3>
-            <p>Referred Users: <span id="referredUsers">0</span></p>
-            <p>Total Earned: <span id="totalEarned">0 RUPE</span></p>
-        </section>
+        
+        <!-- Additional sections like Features, Roadmap, etc. -->
+        
     </main>
     <footer>
-        <p>&copy; 2024 $RUPE. All Rights Reserved.</p>
+        <p>&copy; 2024 RUPE. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
+            <a href="https://discord.com/yourprofile" target="_blank">Discord</a>
+            <a href="https://telegram.org/yourprofile" target="_blank">Telegram</a>
+        </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
-    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const connectButton = document.getElementById('connectButton');
+            const accountDiv = document.getElementById('account');
+            const balanceDiv = document.getElementById('balance');
+            const referralCodeDiv = document.getElementById('referralCode');
+            const copyReferralButton = document.getElementById('copyReferralButton');
+            const referralRewardsDiv = document.getElementById('referralRewards');
+            
+            let account;
+            let web3;
+
+            // Check for referral code in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const referrer = urlParams.get('ref');
+            if (referrer) {
+                localStorage.setItem('referrerCode', referrer); // Store referrer code locally
+            }
+
+            // MetaMask connection
+            connectButton.addEventListener('click', async () => {
+                if (typeof window.ethereum !== 'undefined') {
+                    web3 = new Web3(window.ethereum);
+                    try {
+                        await window.ethereum.request({ method: 'eth_requestAccounts' });
+                        const accounts = await web3.eth.getAccounts();
+                        account = accounts[0];
+                        accountDiv.textContent = `Connected: ${account}`;
+                        const balance = await web3.eth.getBalance(account);
+                        balanceDiv.textContent = `Balance: ${web3.utils.fromWei(balance, 'ether')} ETH`;
+
+                        displayReferralCode();
+                        fetchReferralRewards();
+                    } catch (error) {
+                        console.error(error);
+                    }
+                } else {
+                    alert('MetaMask not detected');
+                }
+            });
+
+            // Function to generate and display referral code
+            function displayReferralCode() {
+                const referralCode = `RUPE_${account.slice(0, 6)}`;
+                referralCodeDiv.textContent = `Your referral code: ${referralCode}`;
+                copyReferralButton.onclick = () => {
+                    const referralLink = `${window.location.origin}?ref=${referralCode}`;
+                    navigator.clipboard.writeText(referralLink);
+                    alert('Referral link copied!');
+                };
+            }
+
+            // Function to fetch and display referral rewards
+            async function fetchReferralRewards() {
+                const rewards = 50;
+                referralRewardsDiv.textContent = `You have earned: ${rewards} RUPE tokens from referrals.`;
+            }
+        });
+    </script>
 </body>
 </html>
