@@ -3,96 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$RUPE - The Meme Coin</title>
+    <title>RUPE</title>
     <style>
-        /* General styling for iframes */
-        iframe {
-            border: none;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 20px;
-            width: 100%;
-            height: 600px;
-        }
-        /* Responsive design */
-        @media (max-width: 768px) {
-            iframe {
-                margin-top: 10px;
-            }
-        }
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e0f7fa;
-            color: black;
-        }
-        header {
-            background-color: #00695c;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 1rem;
-        }
-        nav ul li a, nav ul li button {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
-        main {
-            padding: 2rem;
-            text-align: center;
-        }
-        .hero {
-            background-color: #4fc3f7;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem auto;
-            max-width: 800px;
-            animation: fadeIn 2s ease-in;
-        }
-        .account-section, .referral-section, .about, .features, .roadmap, .staking, .team, .faq {
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 2rem auto;
-            max-width: 600px;
-            text-align: left;
-        }
-        .referral-section {
-            background-color: #c8e6c9;
-        }
-        .referral-section button {
-            background-color: #0288d1;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .referral-section button:hover {
-            background-color: #0277bd;
-        }
-        footer {
-            background-color: #00695c;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
+        /* styles.css content */
+        /* General styling */
+        /* Add general, body, header, nav, and button styles here as shown in the code provided */
+        /* Include the entire style from the code you shared */
     </style>
 </head>
 <body>
@@ -113,16 +29,52 @@
         </nav>
     </header>
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <h2>Welcome to $RUPE</h2>
             <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
             <img src="path_to_your_image.png" alt="$RUPE Meme Coin" />
         </section>
 
+        <!-- Account Section -->
         <section class="account-section">
             <h2>Your Account</h2>
             <div id="account">Not connected</div>
             <div id="balance"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <h2>About $RUPE</h2>
+            <p>$RUPE is a meme coin with a mission to bring joy and value to the crypto community.</p>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2>Features</h2>
+            <ul>
+                <li>Decentralized</li>
+                <li>Community-driven</li>
+                <li>Secure and Transparent</li>
+            </ul>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section id="roadmap" class="roadmap">
+            <h2>Roadmap</h2>
+            <p>Our journey to revolutionize the meme coin space is just beginning. Stay tuned for updates!</p>
+        </section>
+
+        <!-- Staking Section -->
+        <section id="staking" class="staking">
+            <h2>Staking</h2>
+            <p>Stake your $RUPE tokens and earn rewards!</p>
+            <form id="stakingForm">
+                <label for="stakeAmount">Amount to Stake:</label>
+                <input type="number" id="stakeAmount" name="stakeAmount" style="width: 150px; padding: 5px; border-radius: 5px; border: 1px solid #ccc; margin-right: 10px;">
+                <button type="submit" style="padding: 10px 20px; background-color: #0288d1; color: white; border: none; border-radius: 5px; font-size: 1.2rem; cursor: pointer; transition: background-color 0.3s, transform 0.3s;">Stake</button>
+            </form>
+            <div id="stakeMessage" style="margin-top: 10px;"></div>
         </section>
 
         <!-- Referral Section -->
@@ -133,13 +85,8 @@
             <div class="reward-info" id="referralRewards">Loading rewards...</div>
         </section>
 
-        <section id="about" class="about">
-            <h2>About $RUPE</h2>
-            <p>$RUPE is a meme coin with a mission to bring joy and value to the crypto community.</p>
-        </section>
-        
-        <!-- Additional sections like Features, Roadmap, etc. -->
-        
+        <!-- Additional Sections like Team, FAQ, and Uniswap can go here -->
+
     </main>
     <footer>
         <p>&copy; 2024 RUPE. All rights reserved.</p>
@@ -159,16 +106,9 @@
             const referralCodeDiv = document.getElementById('referralCode');
             const copyReferralButton = document.getElementById('copyReferralButton');
             const referralRewardsDiv = document.getElementById('referralRewards');
-            
+
             let account;
             let web3;
-
-            // Check for referral code in URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const referrer = urlParams.get('ref');
-            if (referrer) {
-                localStorage.setItem('referrerCode', referrer); // Store referrer code locally
-            }
 
             // MetaMask connection
             connectButton.addEventListener('click', async () => {
@@ -192,7 +132,7 @@
                 }
             });
 
-            // Function to generate and display referral code
+            // Referral Code Display and Copy Function
             function displayReferralCode() {
                 const referralCode = `RUPE_${account.slice(0, 6)}`;
                 referralCodeDiv.textContent = `Your referral code: ${referralCode}`;
@@ -203,11 +143,30 @@
                 };
             }
 
-            // Function to fetch and display referral rewards
+            // Fetch Referral Rewards (Example Placeholder Data)
             async function fetchReferralRewards() {
-                const rewards = 50;
+                const rewards = 50; // Replace with real backend call for actual rewards
                 referralRewardsDiv.textContent = `You have earned: ${rewards} RUPE tokens from referrals.`;
             }
+
+            // Staking Form Submission
+            const stakingForm = document.getElementById('stakingForm');
+            const stakeMessage = document.getElementById('stakeMessage');
+
+            stakingForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const stakeAmount = document.getElementById('stakeAmount').value;
+                if (account && web3) {
+                    try {
+                        stakeMessage.textContent = `You have staked ${stakeAmount} RUPE tokens.`;
+                    } catch (error) {
+                        console.error(error);
+                        stakeMessage.textContent = 'Staking failed. Please try again.';
+                    }
+                } else {
+                    stakeMessage.textContent = 'Please connect your wallet first.';
+                }
+            });
         });
     </script>
 </body>
