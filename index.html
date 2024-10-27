@@ -4,203 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUPE</title>
-    <style>
-        /* General styling for iframes */
-        iframe {
-            border: none;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 20px;
-            width: 100%;
-            height: 600px;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            iframe {
-                margin-top: 10px;
-            }
-        }
-
-        /* Body and header styles */
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e0f7fa;
-            color: black;
-        }
-
-        header {
-            background-color: #00695c;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 1rem;
-        }
-
-        nav ul li a, nav ul li button {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
-
-        nav ul li button {
-            background-color: #0288d1;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        nav ul li button:hover {
-            background-color: #0277bd;
-            transform: scale(1.05);
-        }
-
-        main {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .hero {
-            background-color: #4fc3f7;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem auto;
-            max-width: 800px;
-            animation: fadeIn 2s ease-in;
-        }
-
-        .hero h2 {
-            margin-top: 0;
-        }
-
-        .hero img {
-            max-width: 100%;
-            height: auto;
-            transition: transform 0.3s;
-        }
-
-        .hero img:hover {
-            transform: scale(1.1);
-        }
-
-        .account-section, .about, .features, .roadmap, .staking, .team, .faq, .referral-section {
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 2rem auto;
-            max-width: 600px;
-            text-align: center;
-            animation: fadeInUp 1s ease-in;
-        }
-
-        .account-section {
-            background-color: #e0f7fa;
-        }
-
-        .about {
-            background-color: #ffeb3b;
-        }
-
-        .features {
-            background-color: #c8e6c9;
-        }
-
-        .roadmap {
-            background-color: #ffccbc;
-        }
-
-        .staking {
-            background-color: #b3e5fc;
-        }
-
-        .team {
-            background-color: #d1c4e9;
-        }
-
-        .faq {
-            background-color: #ffccbc;
-        }
-
-        .referral-section {
-            background-color: #c8e6c9;
-        }
-
-        footer {
-            background-color: #00695c;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        footer .social-media a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s;
-        }
-
-        footer .social-media a:hover {
-            color: #ff9800;
-        }
-
-        /* Dark Mode Styles */
-        body.dark-mode {
-            background-color: #121212;
-            color: white;
-        }
-
-        header.dark-mode, footer.dark-mode {
-            background-color: #1e1e1e;
-        }
-
-        button.dark-mode {
-            background-color: #333;
-            color: white;
-        }
-
-        button.dark-mode:hover {
-            background-color: #444;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -219,17 +23,19 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <section class="hero">
             <h2>Welcome to $RUPE</h2>
             <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
-            <img src="path_to_your_image.png" alt="$RUPE Meme Coin" />
+            <img src="path_to_your_image.png" alt="$RUPE Meme Coin">
         </section>
         <section class="account-section">
             <h2>Your Account</h2>
             <div id="account">Not connected</div>
             <div id="balance"></div>
+            <div id="referralCode"></div>
+            <button id="copyReferralButton">Copy Referral Code</button>
+            <div id="copyStatus"></div>
         </section>
         <section id="about" class="about">
             <h2>About $RUPE</h2>
@@ -252,12 +58,10 @@
             <p>Stake your $RUPE tokens and earn rewards!</p>
             <form id="stakingForm">
                 <label for="stakeAmount">Amount to Stake:</label>
-                <input type="number" id="stakeAmount" name="stakeAmount" style="width: 150px; padding: 5px; border-radius: 5px; border: 1px solid #ccc; margin-right: 10px;">
-                <button type="submit" style="padding: 10px 20px; background-color: #0288d1; color: white; border: none; border-radius: 5px; font-size: 1.2rem; cursor: pointer; transition: background-color 0.3s, transform 0.3s;">
-                    Stake
-                </button>
+                <input type="number" id="stakeAmount" name="stakeAmount">
+                <button type="submit">Stake</button>
             </form>
-            <div id="stakeMessage" style="margin-top: 10px;"></div>
+            <div id="stakeMessage"></div>
         </section>
         <section id="team" class="team">
             <h2>Team</h2>
@@ -267,18 +71,12 @@
             <h2>FAQ</h2>
             <p>Find answers to common questions.</p>
         </section>
-        <section class="referral-section">
-            <h2>Your Referral Dashboard</h2>
-            <p>Your referral code: <span id="referralCode">Not connected</span></p>
-            <button id="copyReferralButton">Copy Referral Link</button>
-            <div id="copyStatus" style="margin-top: 10px; color: #388e3c;"></div>
-        </section>
         <section id="uniswap" class="uniswap">
             <h2>Buy/Sell RUPE on Uniswap</h2>
-            <iframe src="https://app.uniswap.org/#/swap?outputCurrency=YOUR_TOKEN_ADDRESS" id="uniswap-iframe"></iframe>
+            <iframe src="https://app.uniswap.org/#/swap?outputCurrency=YOUR_TOKEN_ADDRESS"></iframe>
         </section>
     </main>
-<footer>
+    <footer>
         <p>&copy; 2024 $RUPE. All Rights Reserved.</p>
         <div class="social-media">
             <a href="https://twitter.com/your_profile" target="_blank">Twitter</a>
@@ -286,70 +84,7 @@
             <a href="https://discord.gg/your_server" target="_blank">Discord</a>
         </div>
     </footer>
-
-    <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            document.querySelectorAll('header, footer, button').forEach(elem => elem.classList.toggle('dark-mode'));
-        });
-
-        // Wallet connection and balance display
-        const connectButton = document.getElementById('connectButton');
-        const accountDisplay = document.getElementById('account');
-        const balanceDisplay = document.getElementById('balance');
-        
-        connectButton.addEventListener('click', async () => {
-            if (typeof window.ethereum !== 'undefined') {
-                try {
-                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                    const account = accounts[0];
-                    accountDisplay.textContent = account;
-                    const balance = await ethereum.request({
-                        method: 'eth_getBalance',
-                        params: [account, 'latest']
-                    });
-                    balanceDisplay.textContent = `Balance: ${parseFloat(parseInt(balance, 16) / 1e18).toFixed(4)} ETH`;
-                    generateReferralCode(account);
-                } catch (error) {
-                    console.error("User rejected request:", error);
-                }
-            } else {
-                accountDisplay.textContent = 'MetaMask not found!';
-            }
-        });
-
-        // Generate Referral Code
-        const referralCodeDisplay = document.getElementById('referralCode');
-        const copyReferralButton = document.getElementById('copyReferralButton');
-        const copyStatus = document.getElementById('copyStatus');
-
-        function generateReferralCode(account) {
-            const code = `https://yourproject.com/?ref=${account}`;
-            referralCodeDisplay.textContent = code;
-        }
-
-        // Copy Referral Code to Clipboard
-        copyReferralButton.addEventListener('click', () => {
-            navigator.clipboard.writeText(referralCodeDisplay.textContent)
-                .then(() => {
-                    copyStatus.textContent = 'Referral link copied!';
-                    setTimeout(() => { copyStatus.textContent = ''; }, 2000);
-                })
-                .catch(err => console.error("Failed to copy text: ", err));
-        });
-
-        // Staking form submission
-        const stakingForm = document.getElementById('stakingForm');
-        const stakeMessage = document.getElementById('stakeMessage');
-
-        stakingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const stakeAmount = document.getElementById('stakeAmount').value;
-            stakeMessage.textContent = `You have staked ${stakeAmount} $RUPE tokens.`;
-            setTimeout(() => { stakeMessage.textContent = ''; }, 3000);
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
