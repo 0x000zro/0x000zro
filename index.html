@@ -7,23 +7,12 @@
     <style>
         /* General styling for iframes */
         iframe {
-            border: none; /* Remove default border */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-            border-radius: 10px; /* Rounded corners */
-            margin-top: 20px; /* Add some spacing */
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
             width: 100%;
             height: 600px;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            iframe {
-                margin-top: 10px; /* Adjust spacing for smaller screens */
-            }
-            nav ul li {
-                display: block;
-                margin: 0.5rem 0;
-            }
         }
 
         /* Body and header styles */
@@ -33,7 +22,6 @@
             padding: 0;
             background-color: #e0f7fa;
             color: black;
-            scroll-behavior: smooth;
         }
 
         header {
@@ -50,11 +38,12 @@
         nav ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
 
         nav ul li {
-            display: inline;
-            margin: 0 1rem;
+            display: block;
+            margin: 0.5rem 0;
         }
 
         nav ul li a, nav ul li button {
@@ -64,6 +53,9 @@
             border: none;
             background: none;
             cursor: pointer;
+            display: block;
+            padding: 0.5rem 1rem;
+            text-align: center;
         }
 
         nav ul li button {
@@ -76,18 +68,6 @@
         nav ul li button:hover {
             background-color: #0277bd;
             transform: scale(1.05);
-        }
-
-        nav ul li .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: #0288d1;
-            padding: 1rem;
-            list-style: none;
-        }
-
-        nav ul li:hover .dropdown-menu {
-            display: block;
         }
 
         main {
@@ -109,19 +89,17 @@
             margin-top: 0;
         }
 
-        .cta-button {
-            display: inline-block;
-            background-color: #0288d1;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            margin-top: 1rem;
+        .hero img {
+            width: 150px;
+            height: auto;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition: transform 0.3s;
         }
 
-        .cta-button:hover {
-            background-color: #0277bd;
+        .hero img:hover {
+            transform: scale(1.1);
         }
 
         .account-section, .about, .features, .roadmap, .staking, .team, .faq {
@@ -256,26 +234,93 @@
             }
         }
 
-        /* Responsive Design */
+        /* Mobile Friendly Design */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.5rem;
             }
 
+            nav ul li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
             .hero {
                 padding: 1rem;
                 margin: 1rem auto;
+                max-width: 90%;
             }
 
             .account-section, .about, .features, .roadmap, .staking, .team, .faq {
                 padding: 1rem;
                 margin: 1rem auto;
+                max-width: 90%;
             }
 
             .hero img {
-                width: 100px; /* Adjust the logo size for smaller screens */
+                width: 100px;
                 top: 5px;
                 right: 5px;
+            }
+
+            .account-section h2, .about h2, .features h2, .roadmap h2, .staking h2, .team h2, .faq h2 {
+                font-size: 1.4rem;
+            }
+
+            input[type="number"], button[type="submit"] {
+                width: 100%;
+                padding: 1rem;
+                margin-top: 1rem;
+                font-size: 1.2rem;
+            }
+
+            footer p {
+                font-size: 1rem;
+            }
+
+            footer .social-media {
+                display: flex;
+                justify-content: center;
+                margin-top: 0.5rem;
+            }
+
+            footer .social-media a {
+                margin: 0 0.8rem;
+                font-size: 1.2rem;
+            }
+
+            /* Mobile menu */
+            #hamburger {
+                display: block;
+                background-color: #0288d1;
+                color: white;
+                font-size: 1.5rem;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                margin: 10px;
+            }
+
+            #hamburger:focus {
+                outline: none;
+            }
+
+            #menu {
+                display: none;
+            }
+
+            #menu.active {
+                display: block;
+            }
+
+            #menu li {
+                text-align: center;
+                padding: 1rem;
+                margin: 0;
             }
         }
     </style>
@@ -284,129 +329,134 @@
     <header>
         <h1>RUPE - The Meme Coin</h1>
         <nav>
-            <ul>
+            <ul id="menu">
                 <li><a href="#">Home</a></li>
-                <li>
-                    <a href="#" class="dropdown-toggle">More</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#roadmap">Roadmap</a></li>
-                        <li><a href="#staking">Staking</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#staking">Staking</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><button id="connectButton">Connect MetaMask</button></li>
                 <li><button id="darkModeToggle">Toggle Dark Mode</button></li>
             </ul>
+            <button id="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
         </nav>
     </header>
     <main>
         <section class="hero">
             <h2>Welcome to RUPE</h2>
             <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
-            <a href="#" class="cta-button">Buy RUPE Now</a>
-            <img src="https://drive.google.com/uc?export=view&id=1L860Xi8hL90vZV2DO6GqyyOMzwMXFmNZ" alt="RUPE Meme Coin Logo" />
+            <img src="https://drive.google.com/uc?export=view&id=1L860Xi8hYYwa5FAPoe-j8hf4CZUS9Tt9" alt="RUPE Coin">
         </section>
-        <section class="account-section">
+
+        <section class="account-section" id="accountSection">
             <h2>Your Account</h2>
-            <div id="account">Not connected</div>
-            <div id="balance"></div>
+            <p>Connect your MetaMask wallet to interact with RUPE.</p>
+            <input type="number" id="rupeAmount" placeholder="Enter Amount" min="1" />
+            <button type="submit" id="submitBtn" onclick="handleSubmit()">Submit</button>
         </section>
-        <section id="about" class="about">
+
+        <section class="about" id="about">
             <h2>About RUPE</h2>
-            <p>RUPE is a meme coin with a mission to bring joy and value to the crypto community.</p>
+            <p>RUPE is a fun, community-driven meme coin inspired by the spirit of meme culture and cryptocurrency enthusiasts. Join our journey to the moon!</p>
         </section>
-        <section id="features" class="features">
+
+        <section class="features" id="features">
             <h2>Features</h2>
             <ul>
-                <li>Decentralized</li>
-                <li>Community-driven</li>
                 <li>Fast Transactions</li>
                 <li>Low Fees</li>
+                <li>Rewards for Holders</li>
+                <li>Community Governance</li>
             </ul>
         </section>
-        <section id="roadmap" class="roadmap">
+
+        <section class="roadmap" id="roadmap">
             <h2>Roadmap</h2>
+            <p>Our roadmap is packed with exciting milestones! Here’s what you can expect:</p>
             <ul>
-                <li>Q1 2024: Launch of RUPE Coin</li>
-                <li>Q2 2024: Staking Platform</li>
-                <li>Q3 2024: Community Rewards Program</li>
-                <li>Q4 2024: Exchange Listings</li>
+                <li>Q1 2025: Token Launch</li>
+                <li>Q2 2025: Community Events</li>
+                <li>Q3 2025: Staking Mechanism</li>
+                <li>Q4 2025: Global Partnerships</li>
             </ul>
         </section>
-        <section id="staking" class="staking">
+
+        <section class="staking" id="staking">
             <h2>Staking</h2>
-            <p>Earn rewards by staking your RUPE coins and supporting the network.</p>
+            <p>Stake your RUPE tokens and earn rewards! The more you stake, the more you earn.</p>
         </section>
-        <section id="team" class="team">
+
+        <section class="team" id="team">
             <h2>Our Team</h2>
-            <p>We are a dedicated team of crypto enthusiasts and developers committed to the success of RUPE.</p>
-        </section>
-        <section id="faq" class="faq">
-            <h2>Frequently Asked Questions</h2>
+            <p>Meet the passionate team behind RUPE:</p>
             <ul>
-                <li><strong>What is RUPE?</strong> RUPE is a meme coin built on the Ethereum blockchain designed to entertain and reward its holders.</li>
-                <li><strong>How can I buy RUPE?</strong> You can buy RUPE on supported decentralized exchanges (DEXs) or through our official platform.</li>
+                <li>John Doe - Founder</li>
+                <li>Jane Smith - Community Manager</li>
+                <li>Alex Johnson - Developer</li>
             </ul>
+        </section>
+
+        <section class="faq" id="faq">
+            <h2>FAQ</h2>
+            <dl>
+                <dt>What is RUPE?</dt>
+                <dd>RUPE is a meme coin designed to bring joy and rewards to its community.</dd>
+                <dt>How do I buy RUPE?</dt>
+                <dd>RUPE can be purchased through decentralized exchanges like Uniswap and Sushiswap.</dd>
+                <dt>How can I stake RUPE?</dt>
+                <dd>Details on staking will be available soon.</dd>
+            </dl>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 RUPE - The Meme Coin. All rights reserved.</p>
+        <p>&copy; 2024 RUPE. All rights reserved.</p>
         <div class="social-media">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Telegram</a>
+            <a href="https://twitter.com/rupecoin" target="_blank">Twitter</a>
+            <a href="https://telegram.me/rupecoin" target="_blank">Telegram</a>
+            <a href="https://discord.gg/rupecoin" target="_blank">Discord</a>
         </div>
     </footer>
 
     <script>
-        // Dark Mode Toggle Functionality
+        // Toggle Dark Mode
         const darkModeToggle = document.getElementById("darkModeToggle");
         darkModeToggle.addEventListener("click", () => {
             document.body.classList.toggle("dark-mode");
-            const elements = document.querySelectorAll("header, footer, .account-section, .about, .features, .roadmap, .staking, .team, .faq");
-            elements.forEach(element => element.classList.toggle("dark-mode"));
         });
 
-        // MetaMask Connection
-        const connectButton = document.getElementById("connectButton");
-        const accountElement = document.getElementById("account");
-        const balanceElement = document.getElementById("balance");
+        // Menu toggle for mobile
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("active");
+        }
 
+        // MetaMask connect
+        const connectButton = document.getElementById("connectButton");
         connectButton.addEventListener("click", async () => {
             if (window.ethereum) {
                 try {
-                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    const account = accounts[0];
-                    accountElement.textContent = `Connected: ${account}`;
-
-                    // Get balance of connected account
-                    const balance = await window.ethereum.request({
-                        method: 'eth_getBalance',
-                        params: [account, 'latest']
-                    });
-                    const balanceInEther = window.web3.utils.fromWei(balance, 'ether');
-                    balanceElement.textContent = `Balance: ${balanceInEther} ETH`;
+                    await window.ethereum.request({ method: "eth_requestAccounts" });
+                    alert("MetaMask Connected!");
                 } catch (error) {
-                    console.error(error);
-                    accountElement.textContent = "Error connecting MetaMask";
+                    alert("Connection failed.");
                 }
             } else {
-                accountElement.textContent = "MetaMask is not installed";
+                alert("Please install MetaMask!");
             }
         });
 
-        // Smooth Scroll Functionality for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener("click", function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute("href")).scrollIntoView({
-                    behavior: "smooth"
-                });
-            });
-        });
+        // Handle submit
+        function handleSubmit() {
+            const amount = document.getElementById("rupeAmount").value;
+            if (amount) {
+                alert(`Submitted: ${amount} RUPE`);
+            } else {
+                alert("Please enter a valid amount.");
+            }
+        }
     </script>
 </body>
 </html>
