@@ -1,185 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RUPE - The Meme Coin</title>
-    <style>
-        /* General styling */
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e0f7fa;
-            color: black;
-        }
-
-        header {
-            background-color: #00695c;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        main {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .hero {
-            background-color: #4fc3f7;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem auto;
-            max-width: 800px;
-            animation: fadeIn 2s ease-in;
-            position: relative;
-        }
-
-        .hero h2 {
-            margin-top: 0;
-        }
-
-        /* Styling for the logo */
-        .hero img {
-            width: 150px;
-            height: auto;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            transition: transform 0.3s;
-        }
-
-        .hero img:hover {
-            transform: scale(1.1);
-        }
-
-        .account-section {
-            background-color: #e0f7fa;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 2rem auto;
-            max-width: 600px;
-            text-align: left;
-            animation: fadeInUp 1s ease-in;
-        }
-
-        .account-section h2 {
-            margin-top: 0;
-        }
-
-        /* Green Submit Button */
-        .submit-btn {
-            background-color: #4caf50; /* Green color */
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .submit-btn:hover {
-            background-color: #388e3c; /* Darker green on hover */
-            transform: scale(1.05);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 1rem;
-                margin: 1rem auto;
-            }
-
-            .account-section {
-                padding: 1rem;
-                margin: 1rem auto;
-            }
-
-            .hero img {
-                width: 100px;
-                top: 5px;
-                right: 5px;
-            }
-
-            .account-section input {
-                width: 100%;
-                padding: 0.8rem;
-                margin: 10px 0;
-                font-size: 1.2rem;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-            }
-
-            .submit-btn {
-                width: 100%;
-                padding: 1rem;
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhenu Crypto Project</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>RUPE - The Meme Coin</h1>
-    </header>
-    <main>
-        <section class="hero">
-            <h2>Welcome to RUPE</h2>
-            <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
-            <img src="https://drive.google.com/uc?export=view&id=1L860Xi8hL90vZV2DO6GqyyOMzwMXFmNZ" alt="RUPE Meme Coin Logo" />
-        </section>
+  <div class="hero-section">
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="dhenu-logo.png" alt="Dhenu Logo" class="logo">
+    </div>
 
-        <section class="account-section">
-            <h2>Your Account</h2>
-            <div id="account">Not connected</div>
-            <div id="balance"></div>
-            <input type="number" id="rupeAmount" placeholder="Enter Amount" min="1" />
-            <button type="button" id="submitBtn" class="submit-btn" onclick="handleSubmit()">Submit</button>
-        </section>
-    </main>
+    <!-- Tagline -->
+    <h1 class="tagline">Empowering Prosperity Through Kamdhenu's Divinity</h1>
 
-    <footer>
-        <p>&copy; 2024 RUPE - All rights reserved.</p>
-    </footer>
-
-    <script>
-        // Handle submit action
-        function handleSubmit() {
-            const amount = document.getElementById("rupeAmount").value;
-            if (amount) {
-                alert(`Submitted: ${amount} RUPE`);
-            } else {
-                alert("Please enter a valid amount.");
-            }
-        }
-    </script>
+    <!-- Buttons -->
+    <div class="cta-buttons">
+      <a href="#" class="button primary">Buy Dhenu Coin</a>
+      <a href="#" class="button secondary">Learn More</a>
+    </div>
+  </div>
 </body>
 </html>
