@@ -3,12 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$RUPE - The Meme Coin</title>
-    <link rel="stylesheet" href="style.css">
+    <title>RUPE - The Meme Coin</title>
+    <style>
+        /* General styling for iframes */
+        iframe {
+            border: none; /* Remove default border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            border-radius: 10px; /* Rounded corners */
+            margin-top: 20px; /* Add some spacing */
+            width: 100%;
+            height: 600px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            iframe {
+                margin-top: 10px; /* Adjust spacing for smaller screens */
+            }
+        }
+
+        /* Body and header styles */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            color: black;
+        }
+
+        header {
+            background-color: #00695c;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        nav ul li a, nav ul li button {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        nav ul li button {
+            background-color: #0288d1;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        nav ul li button:hover {
+            background-color: #0277bd;
+            transform: scale(1.05);
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero {
+            background-color: #4fc3f7;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 800px;
+            animation: fadeIn 2s ease-in;
+            position: relative;
+        }
+
+        .hero h2 {
+            margin-top: 0;
+        }
+
+        /* Styling for the logo */
+        .hero img {
+            width: 150px; /* Adjust the logo width */
+            height: auto;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition: transform 0.3s;
+        }
+
+        .hero img:hover {
+            transform: scale(1.1);
+        }
+
+        .account-section, .about, .features, .roadmap, .staking, .team, .faq {
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: left;
+            animation: fadeInUp 1s ease-in;
+        }
+
+        .account-section h2, .about h2, .features h2, .roadmap h2, .staking h2, .team h2, .faq h2 {
+            margin-top: 0;
+        }
+
+        .account-section {
+            background-color: #e0f7fa;
+        }
+
+        .about {
+            background-color: #ffeb3b;
+        }
+
+        .features {
+            background-color: #c8e6c9;
+        }
+
+        .roadmap {
+            background-color: #ffccbc;
+        }
+
+        .staking {
+            background-color: #b3e5fc;
+        }
+
+        .team {
+            background-color: #d1c4e9;
+        }
+
+        .faq {
+            background-color: #ffccbc;
+        }
+
+        footer {
+            background-color: #00695c;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        footer .social-media a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        footer .social-media a:hover {
+            color: #ff9800;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        header.dark-mode {
+            background-color: #1e1e1e;
+        }
+
+        footer.dark-mode {
+            background-color: #1e1e1e;
+        }
+
+        button.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        button.dark-mode:hover {
+            background-color: #444;
+        }
+
+        .account-section.dark-mode {
+            background-color: #263238;
+        }
+
+        .about.dark-mode {
+            background-color: #fdd835;
+        }
+
+        .features.dark-mode {
+            background-color: #81c784;
+        }
+
+        .roadmap.dark-mode {
+            background-color: #ffab91;
+        }
+
+        .staking.dark-mode {
+            background-color: #4fc3f7;
+        }
+
+        .team.dark-mode {
+            background-color: #9575cd;
+        }
+
+        .faq.dark-mode {
+            background-color: #ffab91;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 1rem;
+                margin: 1rem auto;
+            }
+
+            .account-section, .about, .features, .roadmap, .staking, .team, .faq {
+                padding: 1rem;
+                margin: 1rem auto;
+            }
+
+            .hero img {
+                width: 100px; /* Adjust the logo size for smaller screens */
+                top: 5px;
+                right: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>$RUPE - The Meme Coin</h1>
+        <h1>RUPE - The Meme Coin</h1>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -18,16 +283,16 @@
                 <li><a href="#staking">Staking</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><button id="connectButton">Connect Wallet</button></li>
-                <li><button id="darkModeToggle">Dark Mode</button></li>
+                <li><button id="connectButton">Connect MetaMask</button></li>
+                <li><button id="darkModeToggle">Toggle Dark Mode</button></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="hero">
-            <h2>Welcome to $RUPE</h2>
+            <h2>Welcome to RUPE</h2>
             <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
-            <img src="path_to_your_image.png" alt="$RUPE Meme Coin" />
+            <img src="https://drive.google.com/uc?export=view&id=1L860Xi8hL90vZV2DO6GqyyOMzwMXFmNZ" alt="RUPE Meme Coin Logo" />
         </section>
         <section class="account-section">
             <h2>Your Account</h2>
@@ -35,8 +300,8 @@
             <div id="balance"></div>
         </section>
         <section id="about" class="about">
-            <h2>About $RUPE</h2>
-            <p>$RUPE is a meme coin with a mission to bring joy and value to the crypto community.</p>
+            <h2>About RUPE</h2>
+            <p>RUPE is a meme coin with a mission to bring joy and value to the crypto community.</p>
         </section>
         <section id="features" class="features">
             <h2>Features</h2>
@@ -52,42 +317,66 @@
         </section>
         <section id="staking" class="staking">
             <h2>Staking</h2>
-            <p>Stake your $RUPE tokens and earn rewards!</p>
+            <p>Stake your RUPE tokens and earn rewards!</p>
             <form id="stakingForm">
-                <label for="stakeAmount">Amount to Stake:</label>
-                <input type="number" id="stakeAmount" name="stakeAmount">
+                <label for="stakeAmount">Amount to Stake:</<input type="number" id="stakeAmount" name="stakeAmount" min="1" placeholder="Enter amount" />
                 <button type="submit">Stake</button>
             </form>
-            <div id="stakeMessage"></div>
         </section>
         <section id="team" class="team">
-            <h2>Team</h2>
-            <p>Meet the team behind RUPE.</p>
+            <h2>Meet the Team</h2>
+            <p>Our dedicated team of developers, marketers, and meme enthusiasts are here to bring RUPE to the moon!</p>
         </section>
         <section id="faq" class="faq">
             <h2>FAQ</h2>
-            <p>Find answers to common questions.</p>
-        </section>
-        <section id="uniswap" class="uniswap">
-            <h2>Buy/Sell RUPE on Uniswap</h2>
-            <iframe src="https://app.uniswap.org/#/swap?outputCurrency=YOUR_TOKEN_ADDRESS" id="uniswap-iframe"></iframe>
-        </section>
-        <section class="referral-section">
-            <h2>Your Referral Dashboard</h2>
-            <div id="referralCode">Not connected</div>
-            <button id="copyReferralButton">Copy Referral Link</button>
-            <div class="reward-info" id="referralRewards">Loading rewards...</div>
+            <p>Have questions? We have answers!</p>
+            <ul>
+                <li>What is RUPE? RUPE is the next big meme coin on the Ethereum blockchain.</li>
+                <li>How do I buy RUPE? You can buy RUPE on decentralized exchanges.</li>
+                <li>How do I stake RUPE? Simply use the staking form above to stake your tokens and earn rewards.</li>
+            </ul>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 RUPE. All rights reserved.</p>
+        <p>&copy; 2024 RUPE - All rights reserved.</p>
         <div class="social-media">
-            <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
-            <a href="https://discord.com/yourprofile" target="_blank">Discord</a>
-            <a href="https://telegram.org/yourprofile" target="_blank">Telegram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Telegram</a>
+            <a href="#">Discord</a>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
-    <script src="app.js"></script>
+
+    <script>
+        const connectButton = document.getElementById('connectButton');
+        const accountDiv = document.getElementById('account');
+        const balanceDiv = document.getElementById('balance');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+
+        // MetaMask connection logic
+        connectButton.addEventListener('click', async () => {
+            if (window.ethereum) {
+                try {
+                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                    const account = accounts[0];
+                    accountDiv.textContent = `Connected account: ${account}`;
+                    const balance = await ethereum.request({ method: 'eth_getBalance', params: [account, 'latest'] });
+                    balanceDiv.textContent = `Balance: ${parseFloat(balance) / 10 ** 18} ETH`;
+                } catch (error) {
+                    console.error(error);
+                    accountDiv.textContent = 'Connection failed. Please try again.';
+                }
+            } else {
+                accountDiv.textContent = 'MetaMask not detected. Please install MetaMask and try again.';
+            }
+        });
+
+        // Dark mode toggle
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.querySelectorAll('header, footer, button, .account-section, .about, .features, .roadmap, .staking, .team, .faq').forEach((section) => {
+                section.classList.toggle('dark-mode');
+            });
+        });
+    </script>
 </body>
 </html>
