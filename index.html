@@ -1,26 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dhenu Crypto Project</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhenu - Empowering Wealth with Cultural Roots</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        header {
+            background: #FFD700;
+            padding: 1rem 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #FF4500;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+        .hero {
+            background: linear-gradient(to right, #FF4500, #FFD700);
+            text-align: center;
+            padding: 4rem 0;
+            color: #fff;
+        }
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #FF4500;
+            color: #FFD700;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #FFD700;
+            color: #FF4500;
+        }
+        .section {
+            padding: 3rem 0;
+        }
+        .section h2 {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #FF4500;
+        }
+        .feature-card {
+            background: #FFD700;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .feature-card h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+        }
+        footer {
+            background: #FFD700;
+            text-align: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="hero-section">
-    <!-- Logo -->
-    <div class="logo-container">
-      <img src="dhenu-logo.png" alt="Dhenu Logo" class="logo">
-    </div>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#tokenomics">Tokenomics</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <!-- Tagline -->
-    <h1 class="tagline">Empowering Prosperity Through Kamdhenu's Divinity</h1>
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Dhenu - Empowering Wealth with Cultural Roots</h1>
+                <p>A bridge between tradition and innovation</p>
+                <a href="#features" class="cta-button">Explore Dhenu</a>
+            </div>
+        </section>
 
-    <!-- Buttons -->
-    <div class="cta-buttons">
-      <a href="#" class="button primary">Buy Dhenu Coin</a>
-      <a href="#" class="button secondary">Learn More</a>
-    </div>
-  </div>
+        <section class="section" id="about">
+            <div class="container">
+                <h2>About Dhenu</h2>
+                <p>Here we describe the vision, mission, and cultural significance of Dhenu, with illustrations blending blockchain technology with Indian cultural symbols.</p>
+            </div>
+        </section>
+
+        <section class="section" id="features">
+            <div class="container">
+                <h2>Features</h2>
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <h3>Purity</h3>
+                        <p>Symbolized by the Lotus, our technology ensures clean, transparent transactions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Enlightenment</h3>
+                        <p>The Diya represents our commitment to enlightening users with knowledge and innovation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="tokenomics">
+            <div class="container">
+                <h2>Tokenomics</h2>
+                <p>Here goes an infographic or text explaining the token distribution, utility, and economics of Dhenu.</p>
+            </div>
+        </section>
+
+        <section class="section" id="roadmap">
+            <div class="container">
+                <h2>Roadmap</h2>
+                <p>Details of our timeline with milestones marked by cultural icons like diyas or lotuses.</p>
+            </div>
+        </section>
+
+        <section class="section" id="team">
+            <div class="container">
+                <h2>Our Team</h2>
+                <p>Profiles of our team members with circular images and cultural border designs.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="#">Twitter</a> | 
+            <a href="#">LinkedIn</a> | 
+            <a href="#">GitHub</a>
+            <p>&copy; 2024 Dhenu. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
