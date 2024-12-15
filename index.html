@@ -5,119 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhenu - Empowering Wealth with Cultural Roots</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        header {
-            background: #FFD700;
-            padding: 1rem 0;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: space-around;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #FF4500;
-            font-family: 'Poppins', sans-serif;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #FFD700;
-        }
-        .hero {
-            background: linear-gradient(to right, #FF4500, #FFD700);
-            text-align: center;
-            padding: 4rem 0;
-            color: #fff;
-        }
-        .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #FF4500;
-            color: #FFD700;
-            padding: 10px 20px;
-            text-decoration: none;
-            border: 2px solid #FFD700;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-        .cta-button:hover {
-            background: #FFD700;
-            color: #FF4500;
-        }
-        .section {
-            padding: 3rem 0;
-        }
-        .section h2 {
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #FF4500;
-        }
-        .feature-card {
-            background: #FFD700;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 10px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .feature-card h3 {
-            font-family: 'Poppins', sans-serif;
-            margin-bottom: 10px;
-        }
-        footer {
-            background: #FFD700;
-            text-align: center;
-            padding: 20px 0;
-            color: #fff;
-        }
-        footer a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <nav>
+            <nav id="mainNav">
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -127,6 +20,7 @@
                     <li><a href="#team">Team</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <button id="mobileNavToggle"><span></span><span></span><span></span></button>
             </nav>
         </div>
     </header>
@@ -143,7 +37,14 @@
         <section class="section" id="about">
             <div class="container">
                 <h2>About Dhenu</h2>
-                <p>Here we describe the vision, mission, and cultural significance of Dhenu, with illustrations blending blockchain technology with Indian cultural symbols.</p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Dhenu combines the purity of cultural heritage with the innovation of blockchain technology. Our platform is designed to provide secure, transparent financial transactions while celebrating the rich tapestry of Indian culture.</p>
+                    </div>
+                    <div class="about-image">
+                        <!-- Image or SVG of Blockchain with Indian motifs -->
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -151,11 +52,14 @@
             <div class="container">
                 <h2>Features</h2>
                 <div class="feature-cards">
+                    <!-- More feature cards can be added -->
                     <div class="feature-card">
+                        <i class="icon-lotus"></i>
                         <h3>Purity</h3>
                         <p>Symbolized by the Lotus, our technology ensures clean, transparent transactions.</p>
                     </div>
                     <div class="feature-card">
+                        <i class="icon-diya"></i>
                         <h3>Enlightenment</h3>
                         <p>The Diya represents our commitment to enlightening users with knowledge and innovation.</p>
                     </div>
@@ -166,32 +70,53 @@
         <section class="section" id="tokenomics">
             <div class="container">
                 <h2>Tokenomics</h2>
-                <p>Here goes an infographic or text explaining the token distribution, utility, and economics of Dhenu.</p>
+                <div class="tokenomics-content">
+                    <p>Here's how our tokens are distributed:</p>
+                    <!-- Placeholder for infographics or detailed text -->
+                    <div class="token-chart"></div>
+                </div>
             </div>
         </section>
 
         <section class="section" id="roadmap">
             <div class="container">
                 <h2>Roadmap</h2>
-                <p>Details of our timeline with milestones marked by cultural icons like diyas or lotuses.</p>
+                <div class="roadmap-timeline">
+                    <!-- Timeline items -->
+                </div>
             </div>
         </section>
 
         <section class="section" id="team">
             <div class="container">
                 <h2>Our Team</h2>
-                <p>Profiles of our team members with circular images and cultural border designs.</p>
+                <div class="team-members">
+                    <!-- Team member profiles -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <form id="contactForm">
+                    <!-- Form inputs for name, email, message -->
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <a href="#">Twitter</a> | 
-            <a href="#">LinkedIn</a> | 
-            <a href="#">GitHub</a>
-            <p>&copy; 2024 Dhenu. All rights reserved.</p>
+            <nav class="footer-nav">
+                <a href="#">Twitter</a> | 
+                <a href="#">LinkedIn</a> | 
+                <a href="#">GitHub</a>
+            </nav>
+            <p>© 2024 Dhenu. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
