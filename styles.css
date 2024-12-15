@@ -1,104 +1,113 @@
-/* General Reset */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #FF9933; /* Saffron */
-  overflow-x: hidden;
+/* ... Previous styles ... */
+
+body {
+    background: #fff;
+    color: #333;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
 }
 
-/* Hero Section */
-.hero-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: linear-gradient(to bottom right, #FF9933, #FFD700); /* Saffron to Gold */
-  position: relative;
-  text-align: center;
-  overflow: hidden;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-/* Background Patterns */
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('patterns.png') no-repeat center center;
-  opacity: 0.1;
-  z-index: 1;
+/* Navigation for mobile */
+#mobileNavToggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-/* Logo */
-.logo-container {
-  z-index: 2;
-  animation: glow 3s infinite ease-in-out;
+#mobileNavToggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #FF4500;
+    margin: 5px 0;
 }
 
-.logo {
-  max-width: 150px;
+/* Responsive design */
+@media (max-width: 768px) {
+    #mobileNavToggle {
+        display: block;
+    }
+
+    #mainNav ul {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #FFD700;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    #mainNav ul.active {
+        display: block;
+    }
+
+    #mainNav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 }
 
-/* Tagline */
-.tagline {
-  color: #FFFFFF;
-  font-size: 2rem;
-  margin: 20px 0;
-  z-index: 2;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+/* Feature cards with icons */
+.feature-card i {
+    font-size: 2em;
+    color: #FF4500;
+    margin-bottom: 10px;
 }
 
-/* Buttons */
-.cta-buttons {
-  display: flex;
-  gap: 15px;
-  z-index: 2;
+/* Roadmap and tokenomics styles */
+.tokenomics-content, .roadmap-timeline {
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px;
 }
 
-.button {
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border-radius: 30px;
-  transition: all 0.3s ease-in-out;
-  text-align: center;
+/* Team section */
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-/* Primary Button */
-.button.primary {
-  background: #004225; /* Dark Green */
-  color: #FFFFFF;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.team-members img {
+    border-radius: 50%;
+    border: 3px solid #FFD700;
 }
 
-.button.primary:hover {
-  background: #006837; /* Lighter Green */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+/* Contact form */
+#contactForm {
+    display: flex;
+    flex-direction: column;
 }
 
-/* Secondary Button */
-.button.secondary {
-  background: #FFFFFF;
-  color: #004225;
-  border: 2px solid #004225;
+#contactForm input, #contactForm textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #FF4500;
+    border-radius: 4px;
 }
 
-.button.secondary:hover {
-  background: #E8F5E9;
-  color: #00300E;
-  border-color: #006837;
+#contactForm button {
+    background: #FF4500;
+    color: #FFD700;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease;
 }
 
-/* Glow Animation */
-@keyframes glow {
-  0%, 100% {
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(1.2);
-  }
+#contactForm button:hover {
+    background: #FFD700;
+    color: #FF4500;
 }
