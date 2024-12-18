@@ -5,27 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUPE - The Meme Coin</title>
     <style>
-        /* General Styles */
+        /* General styles */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
+            background-color: #f9f9f9;
             color: #333;
-            overflow-x: hidden;
         }
 
         header {
-            background-color: #0288d1;
-            color: #fff;
-            padding: 1rem 2rem;
+            background-color: #00796b;
+            color: white;
+            padding: 1rem 0;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 2rem;
             margin: 0;
-            font-weight: 700;
+            font-size: 2rem;
         }
 
         nav ul {
@@ -33,7 +32,7 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            margin-top: 1rem;
+            margin: 1rem 0 0;
         }
 
         nav ul li {
@@ -41,135 +40,135 @@
         }
 
         nav ul li a, nav ul li button {
-            color: #fff;
+            color: white;
             text-decoration: none;
             font-size: 1rem;
-            font-weight: 500;
-            border: none;
-            background: none;
-            cursor: pointer;
             padding: 0.5rem 1rem;
+            background-color: #0288d1;
             border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
-        nav ul li button {
-            background: linear-gradient(135deg, #ff9800, #ff5722);
-            color: #fff;
-        }
-
-        nav ul li button:hover {
-            transform: scale(1.1);
+        nav ul li a:hover, nav ul li button:hover {
+            background-color: #0277bd;
+            transform: scale(1.05);
         }
 
         main {
-            padding: 2rem;
-            text-align: center;
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: #00796b;
         }
 
         .hero {
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            text-align: center;
             padding: 2rem;
-            background: #4fc3f7;
-            border-radius: 10px;
-            color: #fff;
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            background: #e0f7fa;
         }
 
         .hero img {
             max-width: 100%;
+            height: auto;
             border-radius: 10px;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
 
         .hero img:hover {
             transform: scale(1.05);
         }
 
-        section {
-            padding: 1.5rem;
-            background: #fff;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .faq ul {
+            padding-left: 20px;
         }
 
-        section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #0288d1;
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
         }
 
         footer {
-            background: #0288d1;
-            color: #fff;
             text-align: center;
             padding: 1rem;
+            background: #00796b;
+            color: white;
             margin-top: 2rem;
         }
 
-        footer .social-media a {
-            color: #fff;
+        footer a {
+            color: white;
             margin: 0 0.5rem;
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: bold;
         }
 
-        footer .social-media a:hover {
+        footer a:hover {
             color: #ff9800;
         }
 
-        /* Dark Mode */
+        /* Dark mode styles */
         body.dark-mode {
-            background: #121212;
-            color: #e0e0e0;
+            background-color: #121212;
+            color: white;
         }
 
-        header.dark-mode, footer.dark-mode {
-            background: #1e1e1e;
+        header.dark-mode {
+            background-color: #1e1e1e;
         }
 
-        .hero.dark-mode {
-            background: #333;
-            color: #e0e0e0;
+        footer.dark-mode {
+            background-color: #1e1e1e;
         }
 
         section.dark-mode {
-            background: #262626;
+            background-color: #2c2c2c;
         }
 
         nav ul li button.dark-mode {
-            background: linear-gradient(135deg, #444, #333);
+            background-color: #333;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        nav ul li button.dark-mode:hover {
+            background-color: #444;
         }
 
-        /* Responsive Design */
+        /* Responsive design */
         @media (max-width: 768px) {
             nav ul {
-                flex-direction: column;
-                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             nav ul li {
-                margin: 0.5rem 0;
+                margin: 0.5rem;
             }
 
-            .hero h2 {
+            header h1 {
                 font-size: 1.5rem;
+            }
+
+            section {
+                padding: 1rem;
+            }
+
+            iframe {
+                height: 300px;
             }
         }
     </style>
@@ -179,12 +178,12 @@
         <h1>RUPE - The Meme Coin</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#staking">Staking</a></li>
                 <li><a href="#team">Team</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><button id="connectButton">Connect MetaMask</button></li>
                 <li><button id="darkModeToggle">Dark Mode</button></li>
             </ul>
@@ -193,8 +192,8 @@
     <main>
         <section class="hero">
             <h2>Welcome to RUPE</h2>
-            <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
-            <img src="path_to_your_image.png" alt="RUPE Meme Coin">
+            <p>The funniest and most rewarding meme coin on the blockchain.</p>
+            <img src="rupe.png" alt="RUPE Meme Coin">
         </section>
         <section id="about">
             <h2>About RUPE</h2>
@@ -208,31 +207,64 @@
                 <li>Secure and Transparent</li>
             </ul>
         </section>
+        <section id="roadmap">
+            <h2>Roadmap</h2>
+            <p>Our journey to revolutionize the meme coin space is just beginning. Stay tuned for updates!</p>
+        </section>
         <section id="staking">
             <h2>Staking</h2>
-            <form>
+            <form id="stakingForm">
                 <label for="stakeAmount">Amount to Stake:</label>
                 <input type="number" id="stakeAmount" name="stakeAmount">
                 <button type="submit">Stake</button>
             </form>
+            <div id="stakeMessage"></div>
+        </section>
+        <section id="team">
+            <h2>Team</h2>
+            <p>Meet the team behind RUPE.</p>
+        </section>
+        <section id="faq">
+            <h2>FAQ</h2>
+            <p>Find answers to common questions here.</p>
+        </section>
+        <section id="uniswap">
+            <h2>Buy/Sell RUPE on Uniswap</h2>
+            <iframe src="https://app.uniswap.org/#/swap?outputCurrency=YOUR_TOKEN_ADDRESS"></iframe>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 RUPE. All rights reserved.</p>
-        <div class="social-media">
-            <a href="#">Twitter</a>
-            <a href="#">Discord</a>
-            <a href="#">Telegram</a>
+        <div>
+            <a href="https://twitter.com/yourprofile">Twitter</a>
+            <a href="https://discord.com/yourprofile">Discord</a>
+            <a href="https://telegram.org/yourprofile">Telegram</a>
         </div>
     </footer>
     <script>
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const connectButton = document.getElementById('connectButton');
+            const body = document.body;
 
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            document.querySelectorAll('header, footer, .hero, section').forEach(el => {
-                el.classList.toggle('dark-mode');
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                document.querySelectorAll('header, footer, section, button').forEach(el => {
+                    el.classList.toggle('dark-mode');
+                });
+            });
+
+            connectButton.addEventListener('click', async () => {
+                if (window.ethereum) {
+                    try {
+                        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                        alert(`Connected: ${accounts[0]}`);
+                    } catch (err) {
+                        alert('Failed to connect wallet');
+                    }
+                } else {
+                    alert('MetaMask not found!');
+                }
             });
         });
     </script>
