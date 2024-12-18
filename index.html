@@ -4,157 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUPE - The Meme Coin</title>
-    <style>
-        /* General styling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f9fc;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(135deg, #0288d1, #00695c);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav ul li {
-            margin: 0 0.5rem;
-        }
-
-        nav ul li a, nav ul li button {
-            text-decoration: none;
-            color: white;
-            background-color: #0288d1;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        nav ul li button:hover, nav ul li a:hover {
-            background-color: #0277bd;
-            transform: scale(1.05);
-        }
-
-        main {
-            padding: 2rem;
-        }
-
-        section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        section h2 {
-            margin-top: 0;
-            color: #0288d1;
-        }
-
-        .hero {
-            text-align: center;
-            background: linear-gradient(135deg, #4fc3f7, #0288d1);
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .hero img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 1rem;
-            transition: transform 0.3s;
-        }
-
-        .hero img:hover {
-            transform: scale(1.1);
-        }
-
-        button, input[type="number"] {
-            font-size: 1rem;
-            padding: 0.5rem;
-            margin-top: 0.5rem;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            outline: none;
-            transition: box-shadow 0.3s, border-color 0.3s;
-        }
-
-        button:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-color: #0288d1;
-        }
-
-        footer {
-            background: #00695c;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-
-        footer a {
-            color: #ff9800;
-            text-decoration: none;
-            margin: 0 0.5rem;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 10px;
-            margin-top: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            .hero {
-                padding: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -168,63 +18,66 @@
                 <li><a href="#staking">Staking</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><button id="connectButton">Connect Wallet</button></li>
-                <li><button id="darkModeToggle">Dark Mode</button></li>
+                <li><button id="connectButton">Connect MetaMask</button></li>
+                <li><button id="darkModeToggle">Toggle Dark Mode</button></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="hero">
             <h2>Welcome to RUPE</h2>
-            <p>Join the funniest and most rewarding meme coin on the blockchain.</p>
-            <img src="rupe.png" alt="RUPE Meme Coin">
+            <p>The funniest and most rewarding meme coin on the Ethereum blockchain.</p>
+            <img src=rupe.png" alt="RUPE Meme Coin">
         </section>
-        <section id="about">
+        <section class="account-section">
+            <h2>Your Account</h2>
+            <div id="account">Not connected</div>
+            <div id="balance"></div>
+        </section>
+        <section id="about" class="about">
             <h2>About RUPE</h2>
-            <p>RUPE is a community-driven meme coin aiming to bring value and laughter to the crypto world.</p>
+            <p>RUPE is a meme coin with a mission to bring joy and value to the crypto community.</p>
         </section>
-        <section id="features">
+        <section id="features" class="features">
             <h2>Features</h2>
             <ul>
-                <li>Decentralized and Transparent</li>
-                <li>Community-focused Development</li>
-                <li>Secure Blockchain Technology</li>
+                <li>Decentralized</li>
+                <li>Community-driven</li>
+                <li>Secure and Transparent</li>
             </ul>
         </section>
-        <section id="roadmap">
+        <section id="roadmap" class="roadmap">
             <h2>Roadmap</h2>
-            <p>Our mission to revolutionize the meme coin space is just beginning.</p>
+            <p>Our journey to revolutionize the meme coin space is just beginning. Stay tuned for updates!</p>
         </section>
-        <section id="staking">
+        <section id="staking" class="staking">
             <h2>Staking</h2>
-            <p>Stake your RUPE tokens and earn exciting rewards!</p>
+            <p>Stake your RUPE tokens and earn rewards!</p>
             <form id="stakingForm">
-                <label for="stakeAmount">Enter Amount to Stake:</label>
-                <input type="number" id="stakeAmount" placeholder="e.g., 100">
-                <button type="submit">Stake Now</button>
+                <label for="stakeAmount">Amount to Stake:</label>
+                <input type="number" id="stakeAmount" name="stakeAmount">
+                <button type="submit">Stake</button>
             </form>
-            <p id="stakeMessage"></p>
+            <div id="stakeMessage"></div>
         </section>
-        <section id="team">
+        <section id="team" class="team">
             <h2>Team</h2>
-            <p>Meet the passionate team behind RUPE.</p>
+            <p>Meet the team behind RUPE.</p>
         </section>
-        <section id="faq">
+        <section id="faq" class="faq">
             <h2>FAQ</h2>
-            <p>Find answers to your questions about RUPE.</p>
-        </section>
-        <section id="uniswap">
-            <h2>Trade RUPE on Uniswap</h2>
-            <iframe src="https://app.uniswap.org/#/swap?outputCurrency=YOUR_TOKEN_ADDRESS"></iframe>
+            <p>Find answers to common questions.</p>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 RUPE. All Rights Reserved.</p>
-        <div>
-            <a href="https://twitter.com/yourprofile">Twitter</a>
-            <a href="https://discord.com/yourprofile">Discord</a>
-            <a href="https://telegram.org/yourprofile">Telegram</a>
+        <p>&copy; 2024 RUPE. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
+            <a href="https://discord.com/yourprofile" target="_blank">Discord</a>
+            <a href="https://telegram.org/yourprofile" target="_blank">Telegram</a>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
