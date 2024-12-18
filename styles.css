@@ -1,113 +1,88 @@
-/* ... Previous styles ... */
-
+/* General styles */
 body {
-    background: #fff;
-    color: #333;
-    line-height: 1.6;
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa;
+    color: black;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+header {
+    background-color: #00695c;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
 }
 
-/* Navigation for mobile */
-#mobileNavToggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
+header h1 {
+    margin: 0;
 }
 
-#mobileNavToggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: #FF4500;
-    margin: 5px 0;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    #mobileNavToggle {
-        display: block;
-    }
-
-    #mainNav ul {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background: #FFD700;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    #mainNav ul.active {
-        display: block;
-    }
-
-    #mainNav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-}
-
-/* Feature cards with icons */
-.feature-card i {
-    font-size: 2em;
-    color: #FF4500;
-    margin-bottom: 10px;
-}
-
-/* Roadmap and tokenomics styles */
-.tokenomics-content, .roadmap-timeline {
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    border-radius: 8px;
-}
-
-/* Team section */
-.team-members {
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
 }
 
-.team-members img {
-    border-radius: 50%;
-    border: 3px solid #FFD700;
+nav ul li {
+    margin: 0 1rem;
 }
 
-/* Contact form */
-#contactForm {
-    display: flex;
-    flex-direction: column;
-}
-
-#contactForm input, #contactForm textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #FF4500;
-    border-radius: 4px;
-}
-
-#contactForm button {
-    background: #FF4500;
-    color: #FFD700;
+nav ul li a,
+nav ul li button {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
     border: none;
-    padding: 10px;
+    background: none;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: background 0.3s ease;
 }
 
-#contactForm button:hover {
-    background: #FFD700;
-    color: #FF4500;
+nav ul li button {
+    padding: 0.5rem 1rem;
+    background-color: #0288d1;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li button:hover {
+    background-color: #0277bd;
+}
+
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+.hero {
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #4fc3f7;
+    border-radius: 10px;
+    text-align: center;
+}
+
+footer {
+    background-color: #00695c;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+header.dark-mode,
+footer.dark-mode {
+    background-color: #1e1e1e;
+}
+
+nav ul li button.dark-mode {
+    background-color: #333;
+    color: white;
 }
